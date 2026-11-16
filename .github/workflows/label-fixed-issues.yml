@@ -1,0 +1,21 @@
+name: "Label Fixed Issues"
+on:
+  issues:
+    types: [closed]
+
+permissions:
+  issues: write
+
+jobs:
+  label_fixed_bug:
+    if: >-
+      github.event.issue.state_reason == 'completed' &&
+      contains(github.event.issue.labels.*.name, 'bug')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Add fixed label
+        run: gh issue edit "$NUMBER" --add-label "fixed"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+          NUMBER: ${{ github.event.issue.number }}
