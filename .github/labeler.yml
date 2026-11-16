@@ -19,10 +19,10 @@ Documentation:
 - changed-files:
   - any-glob-to-any-file: docs/**
 
-## Equivalent of the above mentioned configuration using another syntax
+## Add 'Documentation' label to any changes within 'guides' folder or any subfolders
 Documentation:
 - changed-files:
-  - any-glob-to-any-file: ['docs/*', 'guides/*']
+  - any-glob-to-any-file: 'guides/*'
 
 # Add 'Documentation' label to any change to .md files within the entire repository
 Documentation:
