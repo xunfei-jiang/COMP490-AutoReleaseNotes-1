@@ -1,3 +1,8 @@
+# .github/labeler.yml
+
+# Limit changed-files based labels to 5
+changed-files-labels-limit: 5
+
 # Add 'root' label to any root file changes
 # Quotation marks are required for the leading asterisk
 root:
@@ -13,18 +18,6 @@ AnyChange:
 Documentation:
 - changed-files:
   - any-glob-to-any-file: docs/**
-
-# Add 'Documentation' label to any file changes within 'docs' folder
-Documentation:
-- changed-files:
-  - any-glob-to-any-file: docs/*
-
-# Add 'Documentation' label to any file changes within 'docs' or 'guides' folders
-Documentation:
-- changed-files:
-  - any-glob-to-any-file:
-    - docs/*
-    - guides/*
 
 ## Equivalent of the above mentioned configuration using another syntax
 Documentation:
@@ -46,6 +39,15 @@ source:
 # Add 'feature' label to any PR where the head branch name starts with `feature` or has a `feature` section in the name
 feature:
  - head-branch: ['^feature', 'feature']
+
+# Label definitions - these are subject to the limit
+frontend:
+  - changed-files:
+    - any-glob-to-any-file: 'src/frontend/**'
+
+backend:
+  - changed-files:
+    - any-glob-to-any-file: 'src/backend/**'
 
 # Add 'release' label to any PR that is opened against the `main` branch
 release:
