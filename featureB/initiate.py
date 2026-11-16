@@ -1,12 +1,19 @@
 # This is the initial program for the feature B
 
-# define a variable for feature B
+def get_valid_dimension(prompt):
+    while True:
+        try:
+            value = float(input(prompt))
+            if value > 0:
+                return value
+            else:
+                print("Error: Dimension must be greater than zero.")
+        except ValueError:
+            print("Error: Please enter a valid number.")
 
-# This is the initial program for the feature B
-
-# Get dimensions from the user
-length = float(input("Enter the length of the rectangle: "))
-width = float(input("Enter the width of the rectangle: "))
+# Get validated dimensions from the user
+length = get_valid_dimension("Enter the length of the rectangle: ")
+width = get_valid_dimension("Enter the width of the rectangle: ")
 
 # Calculate area and perimeter
 area = length * width
